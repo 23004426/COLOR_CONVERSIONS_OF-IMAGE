@@ -74,36 +74,76 @@ cv2.imwrite('new.jpg',image)
 ### iii)Shape of the Image
 ### Code :
 ```
-
+import cv2
+image=cv2.imread('jaydeep.jpg',1)
+print(image.shape)
 ```
 ### Output :
+![image](https://github.com/23004426/COLOR_CONVERSIONS_OF-IMAGE/assets/144979327/0f8aee92-16a4-48f3-9160-9e8cea66fd0e)
+
 <br>
 <br>
 
 ### iv)Access rows and columns
 ### Code :
 ```
-
+import random
+import cv2
+image=cv2.imread('jaydeep.jpg',1)
+image=cv2.resize(image,(400,400))
+for i in range (150,200):
+    for j in range(image.shape[1]):
+        image[i][j]=[random.randint(0,255),
+                     random.randint(0,255),
+                     random.randint(0,255)] 
+cv2.imshow('part image',image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 ```
 ### Output :
+![image](https://github.com/23004426/COLOR_CONVERSIONS_OF-IMAGE/assets/144979327/ee50aa13-c628-402e-88ed-fbca105e40de)
+
 <br>
 <br>
 
 ### v)Cut and paste portion of image
 ### Code :
 ```
-
+import cv2
+image=cv2.imread('jaydeep.jpg',1)
+image=cv2.resize(image,(400,400))
+tag =image[150:200,110:160]
+image[110:160,150:200] = tag
+cv2.imshow('partimage1',image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 ```
 ### Output :
+![image](https://github.com/23004426/COLOR_CONVERSIONS_OF-IMAGE/assets/144979327/d904b55d-59a5-4cf7-9a63-154b50c7fc60)
+
 <br>
 <br>
 
 ### vi) BGR and RGB to HSV and GRAY
 ### Code :
 ```
-
+import cv2
+img = cv2.imread('jaydeep.jpg',1)
+img = cv2.resize(img,(300,200))
+cv2.imshow('Original Image',img)
+hsv1 = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+cv2.imshow('BGR2HSV',hsv1)
+hsv2 = cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
+cv2.imshow('RGB2HSV',hsv2)
+gray1 = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+cv2.imshow('BGR2GRAY',gray1)
+gray2 = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
+cv2.imshow('RGB2GRAY',gray2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 ```
 ### Output :
+
 <br>
 <br>
 
